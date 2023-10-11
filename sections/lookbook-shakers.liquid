@@ -1,0 +1,125 @@
+{% render 'lookbook_banner_snippet' %}
+{% schema %}
+{
+  "name": {
+        "en": "Lookbook Shakers",
+        "pt-BR": "Lookbook Shakers"
+  },
+  "class": "index-section",
+  "settings": [
+      {
+        "type": "header",
+        "content": {
+          "en": " [Need help?](https:\/\/api.whatsapp.com\/send?phone=5583998159467&text=Ol%C3%A1,%20preciso%20de%20ajuda%20com%20o%20Lookbook%20Shakers,%20poderia%20me%20ajudar?)",
+          "pt-BR": " [Preciso de ajuda?](https:\/\/api.whatsapp.com\/send?phone=5583998159467&text=Ol%C3%A1,%20preciso%20de%20ajuda%20com%20o%20Lookbook%20Shakers,%20poderia%20me%20ajudar?)"
+        }
+      },
+    {
+      "type": "text",
+      "id": "title-l",
+      "label": {
+        "en": "Heading",
+        "pt-BR": "Título"
+      },
+      "default": {
+        "en": "Lookbook",
+        "pt-BR": "Lookbook"
+      }
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+        {
+          "type": "image_picker",
+          "id": "image-l",
+          "label": {
+        "en": "Image",
+        "pt-BR": "Imagem"
+          }
+        }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": {
+    "en": "Featured product",
+    "pt-BR": "Produto em destaque"
+      },
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": {
+    "en": "Featured product",
+    "pt-BR": "Produto em destaque"
+          }
+        },
+         {
+        "id": "pin-color",
+          "label": {
+        "en": "Cart color",
+        "pt-BR": "Cor do carrinho"
+          },
+                    "default": "#a3fe06",
+                    "type": "color"
+                },
+                {
+                    "id": "moveTop",
+                    "type": "range",
+                    "unit": "%",
+                    "min": 0,
+                    "max": 100,
+                    "label": {
+                    "en": "Y Axis",
+                    "pt-BR": "Eixo Y"
+},
+                    "default": 50,
+                    "step": 1
+                },
+                {
+                    "id": "moveLeft",
+                    "type": "range",
+                    "unit": "%",
+                    "min": 0,
+                    "max": 100,
+                    "label": {
+                    "en": "X Axis",
+                    "pt-BR": "Eixo X"
+},
+                    "default": 50,
+                    "step": 1
+                }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Lookbook Shakers",
+        "pt-BR": "Lookbook Shakers"
+      },
+      "category": {
+        "en": "Image",
+        "pt-BR": "Imagem"
+      }
+    }
+  ]
+}
+{% endschema %}

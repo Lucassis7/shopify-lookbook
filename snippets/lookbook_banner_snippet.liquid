@@ -1,0 +1,233 @@
+{% style %}
+  div:empty {
+    display:block;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1.0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+  .lookbook__shakers img {
+    width: 180px;
+    margin-bottom: 8px;
+    max-width: none;
+    border-radius: 3px;
+  }
+  .lookbook__shakers--title {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 4px !important;
+    color: #121317;
+  }
+  .lookbook__shakers {
+    display: block;
+    width: 220px;
+    padding: 16px;
+    background: #ffffff;
+    font-size: 16px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .lookbook__shakers .button {
+      min-width: 5px !important;
+      min-height: 5px !important;
+      padding: 0 0.5rem !important;
+    }
+    .lookbook__shakers .button .price {
+      font-size: 0.8rem !important;
+    }
+    .lookbook__shakers img {
+      width: 70px;
+      margin-bottom: 8px;
+      max-width: none;
+      border-radius: 3px;
+    }
+    .lookbook__shakers--title {
+      text-decoration: none;
+      display: block;
+      margin-bottom: 4px !important;
+      color: #121317;
+    }
+    .lookbook__shakers {
+      display: block;
+      width: 100px;
+      padding: 10px;
+      background: #ffffff;
+      font-size: 11px;
+    }
+  }
+
+  .main-container {
+    display: flex;
+    justify-content: center;
+  }
+
+   @media only screen and (max-width: 425px) {
+     .main-container {
+        flex-wrap: wrap;
+     }
+   }
+
+  #lb--{{section.id}} {
+    position: relative;
+  }
+{% endstyle %}
+{% if section.settings['title-l'] != blank %}
+  <div class="page-width">
+    <h2 class="title {{ section.settings.heading_size }}">{{ section.settings['title-l'] | escape }}</h2>
+  </div>
+{% endif %}
+<div class="main-container">
+  <div id="lb--{{section.id}}" class="page-width" style="margin: 0; width: 35%;">
+    {% for block in section.blocks %}
+      {% assign LeftOff = block.settings.moveLeft | minus: 15 %}
+      {% assign TopOff = block.settings.moveTop | minus: 36 %}
+      {% style %}
+          #tooltip--{{block.id}} {
+            display: inline-block;
+          }
+          #dot--{{block.id}} {
+            left: {{ block.settings.moveLeft }}%;
+            top: {{ block.settings.moveTop }}%;
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-radius: 100%;
+            background: {{ block.settings.pin-color }};
+            -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+            z-index: 99;
+            animation: 2s pulse ease-in-out infinite;
+            cursor: pointer;
+          }
+          #tooltip--{{block.id}} .tooltiptext {
+            visibility: hidden;
+            text-align: center;
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 999;
+          }
+          #tooltip--{{block.id}}:hover .tooltiptext {
+            visibility: visible;
+          }
+
+          .tooltip--{{block.id}} {
+          display: inline-block;
+        }
+        .tooltiptext-1 {
+          display: none;
+          width: 500px;
+        }
+        .lookbook__shakers {
+          width: 100%;
+        }
+        .lookbook__shakers img {
+          width: 100%;
+          height: 100%;
+        }
+        .lookbook__shakers--title {
+          display: flex;
+          justify-content: space-between;
+        }
+        .active {
+          display: block;
+        }
+
+        @media only screen and (max-width: 768px) {
+          .tooltiptext-1 {
+            width: 100%;
+          }
+          .lookbook__shakers img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      {% endstyle %}
+      <div id="tooltip--{{block.id}}">
+        <div id="dot--{{block.id}}" class="dot">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:cc="http://creativecommons.org/ns#"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+            xmlns:svg="http://www.w3.org/2000/svg"
+            height="22"
+            id="svg2"
+            version="1.1"
+            viewBox="0 0 32 32"
+            width="22"
+            xml:space="preserve"
+          >
+            <defs id="defs6"/><g id="g10" transform="matrix(1.3333333,0,0,-1.3333333,0,32)"><path d="m 6.2326768,14.743441 2.203191,-6.2276803 h 7.9021132 l 2.14684,6.2639303 z" id="path228" style="opacity:1;fill:none;stroke:#333333;stroke-width:0.77409285;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/><path d="m 4.5849158,17.018281 1.647761,-2.27484" id="path230" style="opacity:1;fill:none;stroke:#333333;stroke-width:0.77409285;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"/><ellipse cx="8.8832569" cy="-6.3103447" id="ellipse232" rx="0.67471039" ry="0.66241056" style="opacity:1;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.94645089;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" transform="scale(1,-1)"/><ellipse cx="16.040956" cy="-6.3103447" id="ellipse234" rx="0.67471039" ry="0.66241056" style="opacity:1;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.94645089;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke" transform="scale(1,-1)"/></g>
+          </svg>
+        </div>
+      </div>
+    {% endfor %}
+    {% if section.settings['image-l'] != blank %}
+      <img
+        loading="lazy"
+        width="100%"
+        height="auto"
+        src="{{ section.settings.image-l | img_url: '' }}"
+        alt="{{ section.settings.image-l.alt | escape }}"
+      >
+    {% else %}
+      <p>
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      </p>
+    {% endif %}
+  </div>
+  <div>
+    {% for block in section.blocks %}
+      <span class="tooltiptext-1" id="dt--{{block.id}}">
+        {% assign product = all_products[block.settings.product] %}
+        {% assign product_form_id = 'product-form-' | append: section.id %}
+        <div href="{{product.url}}">
+          <div class="lookbook__shakers">
+            <a href="{{product.url}}">
+              <img
+                src="{{ product.featured_image.src | img_url: '' }}"
+                alt="{{ product.featured_image.alt }}"
+                width="180px"
+                height="180px"
+                loading="lazy"
+              >
+            </a>
+            <div class="lookbook__shakers--title">
+              <span>{{ product.title }}</span>
+              <span>{{ product.price | money }}</span>
+      <script>console.log({{ section.id | json }});</script>
+            </div>
+              {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
+          </div>
+        </div>
+      </span>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const products = document.querySelectorAll(".tooltiptext-1");
+    products[0].classList.add("active");
+
+    const dots = document.querySelectorAll(".dot")
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        products.forEach((product) => {
+          product.classList.remove("active");
+          if (dots[index].id.replace("dot--", "") === product.id.replace("dt--", "")) {
+            product.classList.add("active");
+          }
+        });
+      });
+    })
+  })
+</script>
